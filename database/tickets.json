@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "638ba9e752a986b0bf15bdef"
+  },
+  "ticket": 2215,
+  "timestamp": {
+    "$numberLong": "1670096759663"
+  },
+  "status": "open",
+  "owner": [],
+  "interaction": [
+    {
+      "subject": "Banho e tosa",
+      "message": "Gostaria de tosar o meu cachorro Scooby"
+    }
+  ]
+}]

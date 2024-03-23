@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            padding-top: 50px;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Usuários</h1>
+        <button class="btn btn-primary mb-3" id="addBtn">Adicionar Item</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Login</th>
+                    <th>Nome Completo</th>
+                    <th>E-mail</th>
+                    <th>Celular</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+        <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="itemModalLabel">Adicionar Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="itemForm">
+                            <input type="hidden" id="itemId">                   
+                            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Login do Usuário</label>
+                                <input type="text" class="form-control" id="itemLogin" placeholder="Digite o login do usuário">
+                            </div>   
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="itemPassword" placeholder="Digite a senha">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="itemName" placeholder="Digite o nome completo">
+                            </div>                         
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="itemEmail" placeholder="Digite o e-mail">
+                            </div>
+                         
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Celular</label>
+                                <input type="text" class="form-control" id="itemPhone" placeholder="Digite o número de celular">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userType" class="form-label">Tipo de Usuário</label>
+                                <select class="form-select" id="itemType">
+                                    <option value="customer">Cliente</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="provider">Funcionário</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="saveBtn">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/usuarios.js"></script>
+</body>
+
+</html>

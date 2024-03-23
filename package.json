@@ -1,0 +1,19 @@
+{
+  "name": "loverspet",
+  "version": "1.0.0",
+  "description": "Lover's Pet foi desenvolido para o TCC",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.5",
+    "restify": "^10.0.0"
+  }
+}

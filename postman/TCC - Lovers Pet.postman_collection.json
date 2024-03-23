@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "7b474266-c357-4820-9777-efadd6797be6",
+		"name": "TCC - Lovers Pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33206296"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": ":id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-loverspet-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjVjYjZjZGYzZjhmZmM3ODdjMDc1YyIsImtleSI6MTE0MjAsIm5hbWUiOiJHZWFuZSBWaWVpcmEgQ29ybmVkaSIsInVzZXIiOiJhZG1pbi5nZWFuZS5jb3JuZWRpIiwidHlwZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6IlUyRnNkR1ZrWDE4M3krOW5oNmFHVWVrVVRpL2UralFsVUV3TU5qUVpFMmc9IiwiaWF0IjoxNzEwNjA3NTgxLCJleHAiOjE3MTA2MTExODF9.Q_d5UQia7Ck-BihsFnnTpqTJv-2ATydBfTiWh8qCUCc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Cliente Chato\",\r\n    \"user\": \"cliente.chato\",\r\n    \"password\": \"abc1234\",\r\n    \"type\": \"customer\",\r\n    \"cellPhone\": \"11981062323\",\r\n    \"email\": \"cliente.chato@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servername}}/user/:id",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65f5d2bbe68486684b6722b7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-loverspet-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6bnVsbCwidHlwZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6IlUyRnNkR1ZrWDE4dWhxeFhROXR3VnBIZzJwdTZuUjFPTmhOb01EbHhnWlE9IiwiaWF0IjoxNzEwNjAzODY2LCJleHAiOjE3MTA2MDc0NjZ9.FXWNaIy1YUTK0AaeIyPPlMEF8ZAzdxcm7EDsKRhsmmo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servername}}/user/list",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-loverspet-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6bnVsbCwidHlwZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6IlUyRnNkR1ZrWDE5dmlzZ0xPQnZ3Ym5VRGFQTjNRRXo5bTMyTUpCTm9BUEk9IiwiaWF0IjoxNzEwMDI1NjExLCJleHAiOjE3MTAwMjkyMTF9.uv-tQcVyVhEV3YiZMKsWjJfML4_l8ofjOPxl_blvo2g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Cliente Chato\",\r\n    \"user\": \"cliente.chato\",\r\n    \"password\": \"abc1234\",\r\n    \"type\": \"customer\",\r\n    \"cellPhone\": \"11981062323\",\r\n    \"email\": \"cliente.chato@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servername}}/user/create",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ":id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-loverspet-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6bnVsbCwidHlwZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6IlUyRnNkR1ZrWDE4dWhxeFhROXR3VnBIZzJwdTZuUjFPTmhOb01EbHhnWlE9IiwiaWF0IjoxNzEwNjAzODY2LCJleHAiOjE3MTA2MDc0NjZ9.FXWNaIy1YUTK0AaeIyPPlMEF8ZAzdxcm7EDsKRhsmmo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{servername}}/user/:id",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65f5d0117cabc64f334b22f8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\" : \"geane.cornedi\",\r\n    \"password\": \"Abc12344\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{servername}}/login",
+					"host": [
+						"{{servername}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "provider",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\" : \"geane.cornedi\",\r\n    \"password\": \"Abc12344\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servername}}/login",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "administrator",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\" : \"admin.geane.cornedi\",\r\n    \"password\": \"admin.12344\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{servername}}/login",
+							"host": [
+								"{{servername}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "servername",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

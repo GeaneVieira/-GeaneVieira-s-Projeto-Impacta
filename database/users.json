@@ -1,0 +1,11 @@
+[{
+  "_id": {
+      "$oid": "65f5cb6cdf3f8ffc787c075c"
+  },
+  "user": "admin.geane.cornedi",
+  "password": "admin.12344",
+  "type": "administrator",
+  "status": 1,
+  "fullName": "Geane Vieira Cornedi",
+  "cellPhone": "11981062525"
+}]

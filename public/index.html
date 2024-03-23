@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Login</title>
+  <!-- Adicionando o CSS do Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .login-panel {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 50px;
+    }
+    .panel-heading {
+      text-align: center;
+    }
+    .panel-body {
+      padding-top: 30px;
+    }
+    .img-circle {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: auto;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="login-panel panel panel-default">
+    <div class="panel-heading">
+      <img src="images/logo.jpg" class="img-circle" alt="Cão e Gato">
+      <h3 class="panel-title">Faça Login</h3>
+    </div>
+    <div class="panel-body">
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+        </div>
+        <div class="mb-3">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

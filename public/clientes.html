@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Some additional styles */
+    .container {
+      padding-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Clientes</h1>
+  <button class="btn btn-primary mb-3" id="addBtn">Adicionar Item</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <!-- Os itens serão adicionados aqui dinamicamente -->
+    </tbody>
+  </table>
+
+  <!-- Modal para adicionar/editar item -->
+  <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="itemModalLabel">Adicionar Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="itemForm">
+            <input type="hidden" id="itemId">
+            <div class="mb-3">
+              <label for="itemName" class="form-label">Nome do Item</label>
+              <input type="text" class="form-control" id="itemName">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" id="saveBtn">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS bundle (Popper included) -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    
+  // Dados fictícios para simular um banco de dados
+  let items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+    { id: 3, name: 'Item 3' }
+  ];
+
+  // Função para exibir os itens na tabela
+  function renderItems() {
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+    items.forEach(item => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" onclick="editItem(${item.id})">Editar</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteItem(${item.id})">Excluir</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Função para adicionar um novo item
+  function addItem() {
+    const itemName = document.getElementById('itemName').value;
+    const newItem = {
+      id: items.length + 1,
+      name: itemName
+    };
+    items.push(newItem);
+    renderItems();
+    $('#itemModal').modal('hide');
+  }
+
+  // Função para editar um item existente
+  function editItem(id) {
+    const item = items.find(item => item.id === id);
+    document.getElementById('itemId').value = item.id;
+    document.getElementById('itemName').value = item.name;
+    $('#itemModalLabel').text('Editar Item');
+    $('#itemModal').modal('show');
+  }
+
+  // Função para salvar alterações em um item
+  function saveItem() {
+    const itemId = parseInt(document.getElementById('itemId').value);
+    const itemName = document.getElementById('itemName').value;
+    const index = items.findIndex(item => item.id === itemId);
+    if (index !== -1) {
+      items[index].name = itemName;
+      renderItems();
+      $('#itemModal').modal('hide');
+    }
+  }
+
+  // Função para excluir um item
+  function deleteItem(id) {
+    items = items.filter(item => item.id !== id);
+    renderItems();
+  }
+
+  // Event listener para o botão "Adicionar Item"
+  document.getElementById('addBtn').addEventListener('click', function() {
+    document.getElementById('itemId').value = '';
+    document.getElementById('itemName').value = '';
+    $('#itemModalLabel').text('Adicionar Item');
+    $('#itemModal').modal('show');
+  });
+
+  // Event listener para o botão "Salvar" no modal
+  document.getElementById('saveBtn').addEventListener('click', function() {
+    const itemId = document.getElementById('itemId').value;
+    if (itemId === '') {
+      addItem();
+    } else {
+      saveItem();
+    }
+  });
+
+  // Inicialização da tabela ao carregar a página
+  renderItems();
+</script>
+</body>
+</html>
