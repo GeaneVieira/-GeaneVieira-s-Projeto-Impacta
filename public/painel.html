@@ -1,58 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Painel do Usuário</title>
-  
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/painel.css" rel="stylesheet">
-  
+
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <a class="navbar-brand logo" href="#">      
-      <img src="images/logo_50x48.png" alt="LoversPet" width="50">
-    </a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" href="#">
+        <img src="images/logo_50x48.png" alt="LoversPet" width="50">
+      </a>
+    </div>
+  </nav>
+
+  <!-- Menu Lateral -->
+  <div class="menu-lateral">
+    <ul class="nav flex-column mt-3">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Agendamentos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Serviços</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="setIframe('usuarios.html')">Usuários</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Sair</a>
+      </li>
+    </ul>
   </div>
-</nav>
-
-<!-- Menu Lateral -->
-<div class="menu-lateral">
-  <ul class="nav flex-column mt-3">
-    <li class="nav-item">
-      <a class="nav-link" href="#" onclick="setIframe('agenda.html')">Agendamentos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" onclick="setIframe('servicos.html')">Serviços</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" onclick="setIframe('clientes.html')" >Clientes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" onclick="setIframe('usuarios.html')">Usuários</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="index.html" >Sair</a>
-    </li>
-  </ul>
-</div>
 
 
-<div class="iframe-container">
-  <iframe id="iframePainel" src="agenda.html"></iframe>
-</div>
+  <div class="iframe-container">
+    <iframe id="iframePainel" src="agenda.html"></iframe>
+  </div>
 
-
-<script src="js/bootstrap.bundle.min.js"></script>
-<script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/helpers.js"></script>
+  <script>
+    $(document).ready(function () {
+      checkLogin();
+    });
     function setIframe(pagina) {
-        var iframePainel = document.getElementById("iframePainel");
-        iframePainel.src = pagina;
+      var iframePainel = document.getElementById("iframePainel");
+      iframePainel.src = pagina;
     }
-</script>
+
+    setIframe("boas_vindas.html");
+
+  </script>
+
 </body>
+
 </html>

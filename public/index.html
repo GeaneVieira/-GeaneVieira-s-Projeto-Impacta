@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,15 @@
       margin: auto;
       margin-top: 50px;
     }
+
     .panel-heading {
       text-align: center;
     }
+
     .panel-body {
       padding-top: 30px;
     }
+
     .img-circle {
       border-radius: 50%;
       width: 100px;
@@ -28,31 +32,67 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <div class="login-panel panel panel-default">
-    <div class="panel-heading">
-      <img src="images/logo.jpg" class="img-circle" alt="Cão e Gato">
-      <h3 class="panel-title">Faça Login</h3>
-    </div>
-    <div class="panel-body">
-      <form>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+  <div class="container">
+    <div class="login-panel panel panel-default">
+      <div class="panel-heading">
+        <img src="images/logo.jpg" class="img-circle" alt="Cão e Gato">
+        <h3 class="panel-title">Faça Login</h3>
+      </div>
+      <div class="panel-body">
+        <form id="login-form">
+          <div class="mb-3">
+            <label for="user" class="form-label">Usuatio</label>
+            <input type="text" class="form-control" id="user" placeholder="Digite seu Usuário">
+          </div>
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+        </form>
+        <div id="error-message" style="color: red; display: none;">Credenciais incorretas, por favor tente novamente.
         </div>
-        <div class="mb-3">
-          <label for="senha" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-      </form>
+      </div>
     </div>
   </div>
-</div>
 
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#login-form').on('submit', function (event) {
+        event.preventDefault(); 
 
-<script src="js/bootstrap.bundle.min.js"></script>
+        const email = $('#user').val();
+        const password = $('#password').val();
+
+        $.ajax({
+          url: 'http://localhost:3000/login',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ user: email, password: password }),
+          success: function (response) {
+           
+            if (response.success) {
+              console.log(response.data['x-loverspet-token'].token)
+              localStorage.setItem('token',response.data['x-loverspet-token'].token);
+              window.location.href = 'http://localhost:3000/painel.html';
+            } else {
+              $('#error-message').show();
+            }
+          },
+          error: function () {
+            $('#error-message').show();
+            $('#user').val('')
+            $('#password').val('');
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>

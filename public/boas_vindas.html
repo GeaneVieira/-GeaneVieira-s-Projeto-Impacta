@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Vindas</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            width: 90%;
+            max-width: 1000px;
+            height: 90vh;
+        }
+
+        .mosaic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            transition: filter 0.5s, opacity 0.5s;
+        }
+
+        .mosaic img.darkened {
+            filter: brightness(50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mosaic">
+        <img src="images/Mosaico/01.jpg">
+        <img src="images/Mosaico/02.jpg">
+        <img src="images/Mosaico/03.jpg">
+        <img src="images/Mosaico/04.jpg">
+        <img src="images/Mosaico/05.jpg">
+        <img src="images/Mosaico/06.jpg">
+        <img src="images/Mosaico/07.jpg">
+        <img src="images/Mosaico/08.jpg">
+        <img src="images/Mosaico/09.jpg">
+        <img src="images/Mosaico/10.jpg">
+        <img src="images/Mosaico/01.jpg">
+        <img src="images/Mosaico/02.jpg">
+        <img src="images/Mosaico/03.jpg">
+        <img src="images/Mosaico/06.jpg">
+        <img src="images/Mosaico/07.jpg">
+        <img src="images/Mosaico/08.jpg">
+        <img src="images/Mosaico/09.jpg">
+        <img src="images/Mosaico/10.jpg">
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        function darkenRandomImage() {            
+            const images = $('.mosaic img');            
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const selectedImage = images.eq(randomIndex);
+
+            selectedImage.addClass('darkened');
+
+            setTimeout(function () {
+                selectedImage.removeClass('darkened');
+            }, 2000);
+        }
+
+        setInterval(darkenRandomImage, 3000);
+    });
+
+</script>
+
+</html>

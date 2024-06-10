@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>    
+    <title>Usuários</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -12,7 +12,7 @@
             padding-top: 50px;
         }
     </style>
-    
+
 </head>
 
 <body>
@@ -44,28 +44,32 @@
                     </div>
                     <div class="modal-body">
                         <form id="itemForm">
-                            <input type="hidden" id="itemId">                   
-                            
+                            <input type="hidden" id="itemId">
+
                             <div class="mb-3">
                                 <label for="username" class="form-label">Login do Usuário</label>
-                                <input type="text" class="form-control" id="itemLogin" placeholder="Digite o login do usuário">
-                            </div>   
+                                <input type="text" class="form-control" id="itemLogin"
+                                    placeholder="Digite o login do usuário">
+                            </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="itemPassword" placeholder="Digite a senha">
+                                <input type="password" class="form-control" id="itemPassword"
+                                    placeholder="Digite a senha">
                             </div>
                             <div class="mb-3">
                                 <label for="fullName" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="itemName" placeholder="Digite o nome completo">
-                            </div>                         
+                                <input type="text" class="form-control" id="itemName"
+                                    placeholder="Digite o nome completo">
+                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-mail</label>
                                 <input type="email" class="form-control" id="itemEmail" placeholder="Digite o e-mail">
                             </div>
-                         
+
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Celular</label>
-                                <input type="text" class="form-control" id="itemPhone" placeholder="Digite o número de celular">
+                                <input type="text" class="form-control" id="itemPhone"
+                                    placeholder="Digite o número de celular">
                             </div>
                             <div class="mb-3">
                                 <label for="userType" class="form-label">Tipo de Usuário</label>
@@ -85,10 +89,25 @@
             </div>
         </div>
     </div>
-    
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/usuarios.js"></script>
+    <script src="js/helpers.js"></script>
+    <script>
+        $(document).ready(function () {
+            checkLogin();
+
+            $('#addBtn').on('click',function(){
+                itemLogin = document.getElementById('itemLogin').value = '';
+                itemPassword = document.getElementById('itemPassword').value = '';
+                itemName = document.getElementById('itemName').value = '';
+                itemEmail = document.getElementById('itemEmail').value = '';
+                itemPhone = document.getElementById('itemPhone').value = '';
+                itemType = document.getElementById('itemType').value = '';
+            })
+        });
+    </script>
 </body>
 
 </html>

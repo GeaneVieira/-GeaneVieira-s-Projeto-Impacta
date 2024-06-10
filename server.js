@@ -123,6 +123,33 @@ function JWTvalidateSession(req, res,next){
 
 }  
 
+
+server.post('/validate-token', async function(req,res){
+    
+
+    if(req.body == undefined){
+        let tokenNaoInformado = returnErrors.tokenNaoInformado(req.getPath());
+        return res.send(tokenNaoInformado.status, tokenNaoInformado);
+    }
+
+    let token = req.body.token;       
+    
+    if (!token){
+        let nenhumTokenFornecido = returnErrors.nenhumTokenFornecido('token');
+        return res.send(nenhumTokenFornecido.status, nenhumTokenFornecido);  
+    }     
+
+    try{                
+        let test = jwt.verify(token, process.env.API_TOKEN);        
+        let returnToken = returnSuccess.tokenValido()
+        res.send(200, returnToken);
+    }catch(err){
+        let tokenInvalido = returnErrors.tokenInvalido('token');
+        res.send(tokenInvalido.status, tokenInvalido);        
+    }
+})
+
+
 server.post('/login', async function(req,res){    
     if(req.body == undefined){
         let credenciaisNaoInformadas = returnErrors.credenciaisNaoInformadas(req.getPath());
@@ -182,7 +209,6 @@ server.post('/login', async function(req,res){
         }
     }        
 })
-
 
 
 /** Consultar um ticket pelo seu numero */
