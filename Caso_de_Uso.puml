@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+
+actor User as U
+actor Administrator as A
+
+rectangle Sistema {
+    usecase "Criar Ticket" as CT
+    usecase "Atualizar Ticket" as AT
+    usecase "Listar Ticket" as LT
+    usecase "Remover Usuário" as RU
+    usecase "Atualizar Usuário" as AU
+    usecase "Listar Usuário" as LU
+}
+
+U --> CT
+U --> AT
+U --> LT
+A --> RU
+A --> AU
+A --> LU
+@enduml

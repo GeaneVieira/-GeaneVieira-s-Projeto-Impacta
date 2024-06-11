@@ -169,13 +169,9 @@ server.post('/login', async function(req,res){
         if(objUser[0].status){
             /** Adicionar validação para o ultimo token */
             let lastToken = await tokens.findOne({user : user}).sort({_id: -1}).exec();
-           
-
-
             try{
 
                 let decoded = jwt.verify(lastToken.token, process.env.API_TOKEN);
-                
                 
                 /**  O Token ainda é valido, será utilizado o mesmo token até que expire  */
                 let returnToken = returnSuccess.tokenGeradoComSucesso(lastToken.token)
@@ -183,7 +179,6 @@ server.post('/login', async function(req,res){
               
             }catch(err){                
 
-                
                 /** O Token Expirou, será criado um novo token */
                 if (objUser[0]._id != undefined && objUser[0]._id != null){                                                    
                     

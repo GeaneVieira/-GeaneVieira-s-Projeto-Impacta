@@ -1,0 +1,59 @@
+@startuml
+class Server {
+    - name: String
+    - url: String
+    - version: String
+    + post(path: String, handler: Function)
+    + get(path: String, handler: Function)
+    + patch(path: String, handler: Function)
+    + del(path: String, handler: Function)
+    + listen(port: Number, callback: Function)
+}
+
+class Autenticate {
+    + getInfoUserToken(token: String): Object
+    + gerarNovotoken(userObj: Object): String
+}
+
+class responseErrors {
+    + tokenNaoInformado(endpoint: String): Object
+    + credenciaisNaoInformadas(endpoint: String): Object
+    + authenticationFailure(endpoint: String): Object
+    + authenticationFailureUserBlock(endpoint: String): Object
+    + userNotExists(endpoint: String): Object
+    + userExists(endpoint: String): Object
+    + validateTypeUser(type: String, endpoint: String): Object
+    + validateAdministratorPermission(type: String, endpoint: String): Object
+    + createUserError(endpoint: String): Object
+    + removeUserError(endpoint: String): Object
+    + nenhumTokenFornecido(parametro: String): Object
+    + tokenInvalido(parametro: String): Object
+    + valorObrigatorio(objeto: Object, camposObrigatorios: Array, endpoint: String): Object
+    + arrayObrigatorio(objeto: Object, camposObrigatorios: Array, endpoint: String): Object
+    + ticketInvalid(endpoint: String): Object
+    + createTicketError(endpoint: String, error: Object): Object
+    + updateTicketErrorNotExists(endpoint: String): Object
+    + badResquest(endpoint: String): Object
+    + ticketValidateProgress(status: String, endpoint: String): Object
+    + ticketValidateStatus(status: String, endpoint: String): Object
+}
+
+class responseSuccess {
+    + tokenValido(): Object
+    + tokenGeradoComSucesso(token: String): Object
+    + listTicket(result: Object): Object
+    + listTicketResultEmpty(): Object
+    + listAllTickets(result: Object): Object
+    + listUpdateTicket(result: Object): Object
+    + createTicketSuccess(result: Object): Object
+    + removeUserSuccess(result: Object): Object
+    + createUserSuccess(result: Object): Object
+    + updateTypeUserSuccess(result: Object): Object
+    + updateFullNameUserSuccess(result: Object): Object
+    + updateUserSuccess(result: Object): Object
+}
+
+Server -- Autenticate
+Server -- responseErrors
+Server -- responseSuccess
+@enduml
